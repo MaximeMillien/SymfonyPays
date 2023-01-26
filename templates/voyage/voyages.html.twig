@@ -3,30 +3,16 @@
 {% block title %}Voyages{% endblock %}
 
 {% block monTitre %}
-Liste des pays
+	Liste des pays
 {% endblock %}
 
-
 {% block body %}
-<table class="table">
-<tr class="thread-dark">
-<th>Carte du pays : </th>
-<th>  </th>
-
-<th>Pays : </th>
-<th>Capital : </th>
-<th>Description du pays : </th>
-
-</tr>
-    {% for pays in voyages %}
-<tr>
-    <td><img src="{{asset('images/pays/' ~ pays.pays ~ '.jpg')}}"></td>
-    <td><a href="{{ path ('afficherVoyage', {'pays' : pays.pays|lower}) }}">{{ pays.pays }}</a></td>
-
-    <td>{{pays.pays}}</td>
-    <td>{{pays.capital}}</td>
-    <td>{{pays.description}}</td>
-</tr>
-    {% endfor %}
-    </table>
+	<div class="container d-flex justify-content-between">
+		{% for pays in voyages %}
+			<td>
+				<a href="{{ path ('afficherVoyage', {'pays' : pays.pays|lower}) }}">
+				<img src="{{asset('images/pays/' ~ pays.pays ~ '.jpg')}}"></a>
+			</td>
+		{% endfor %}
+	</div>
 {% endblock %}

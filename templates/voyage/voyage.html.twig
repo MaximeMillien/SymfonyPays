@@ -1,12 +1,18 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Pays
+{% block title %}
+	Capital
 {% endblock %}
+
 
 {% block monTitre %}
-Pays {{ pays.nom }}
+	Capital
 {% endblock %}
 
+
 {% block body %}
+<pre>
+{{ dump(pays) }}
+</pre>
 
 {% endblock %}

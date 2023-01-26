@@ -24,7 +24,7 @@ class VoyageController extends AbstractController
         ]);
     }
 
-    #[Route('/voyages', name: 'afficherVoyage')]
+    #[Route('/voyages/{pays}', name: 'afficherVoyage')]
     public function afficherVoyage($pays): Response
     {
         Voyage::creerVoyages();
