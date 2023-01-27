@@ -6,6 +6,12 @@
 
 {% block body %}
 
-<a href={{path('afficherVoyage')}}> test </a>
-
+	<div class="container d-flex justify-content-between">
+		{% for pays in voyages %}
+			<td>
+				<a href="{{ path ('afficherVoyage', {'pays' : pays.pays|lower}) }}">
+				<img src="{{asset('images/pays/' ~ pays.pays ~ '.jpg')}}"></a>
+			</td>
+		{% endfor %}
+	</div>
 {% endblock %}

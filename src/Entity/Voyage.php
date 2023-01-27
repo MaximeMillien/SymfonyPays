@@ -21,9 +21,7 @@ class Voyage
     public function getPays(){return $this->pays;}
     public function getCapital(){return $this->capital;}
     public function getDescription(){return $this->description;}
-    public function setPays($pays){ $this->pays = $pays; return $this;}
-    public function setCapital($capital){$this->capital = $capital; return $this;}
-    public function setDescription($description){$this->description = $description; return $this;}
+    
 
 
     public static function creerVoyages()
@@ -35,7 +33,7 @@ class Voyage
     public static function getVoyagesParNom($pays){
         foreach (self::$voyages as $voyage) {
             if (strtolower($voyage->getPays()) === $pays) {
-                return $pays;
+                return $voyage -> getPays();
             }
         }
     }

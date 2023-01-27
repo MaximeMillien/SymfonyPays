@@ -12,6 +12,7 @@ class VoyageController extends AbstractController
     #[Route('/', name: 'accueil')]
     public function index(): Response
     {
+        Voyage::creerVoyages();
         return $this->render('voyage/index.html.twig');
     }
 
@@ -20,17 +21,9 @@ class VoyageController extends AbstractController
     { 
         Voyage::creerVoyages();
         return $this->render('voyage/voyages.html.twig', [
-            "voyages" => Voyage::$voyages
+           "nom" => $voyages, "voyages" => Voyage::$voyages
         ]);
     }
 
-    #[Route('/voyages/{pays}', name: 'afficherVoyage')]
-    public function afficherVoyage($pays): Response
-    {
-        Voyage::creerVoyages();
-        $pays = Voyage::getVoyagesParNom($pays);
-        return $this->render('voyage/voyage.html.twig', [
-            "pays" => $pays
-        ]);
-    }
+
 }
